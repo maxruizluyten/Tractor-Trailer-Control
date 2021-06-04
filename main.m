@@ -233,10 +233,67 @@ F = @(s,X) double(f(X(1),X(2),X(3),X(4),X(5),X(6),X(7),X(8),X(9),X(10))...
 % Resolem la equació deiferencial amb la funció ode45:
 [s,Q_metode1] = ode45(F,[T0,TF],q0);
 
-for i = 1:10
-    figure(i)
- plot(s,Q_metode1(:,i))
-end
+figure(1)
+set(gcf,'color','w')
+subplot(2,5,1)
+plot(s,Q_metode1(:,1))
+title('Evolution of $x$ in time','Interpreter','Latex')
+xlabel('$t$','Interpreter', 'Latex') 
+ylabel('$x(t)$','Interpreter', 'Latex')
+
+subplot(2,5,2)
+plot(s,Q_metode1(:,2))
+title('Evolution of $y$ in time','Interpreter','Latex')
+xlabel('$t$','Interpreter', 'Latex') 
+ylabel('$y(t)$','Interpreter', 'Latex')
+
+subplot(2,5,3)
+plot(s,Q_metode1(:,3))
+title('Evolution of $\theta$ in time','Interpreter','Latex')
+xlabel('$t$','Interpreter', 'Latex') 
+ylabel('$\theta(t)$','Interpreter', 'Latex')
+
+subplot(2,5,4)
+plot(s,Q_metode1(:,4))
+title('Evolution of $\psi$ in time','Interpreter','Latex')
+xlabel('$t$','Interpreter', 'Latex') 
+ylabel('$\psi(t)$','Interpreter', 'Latex')
+
+subplot(2,5,5)
+plot(s,Q_metode1(:,5))
+title('Evolution of $\delta_1$ in time','Interpreter','Latex')
+xlabel('$t$','Interpreter', 'Latex') 
+ylabel('$\delta_1(t)$','Interpreter', 'Latex')
+
+subplot(2,5,6)
+plot(s,Q_metode1(:,6))
+title('Evolution of $\delta_2$ in time','Interpreter','Latex')
+xlabel('$t$','Interpreter', 'Latex') 
+ylabel('$\delta_2(t)$','Interpreter', 'Latex')
+
+subplot(2,5,7)
+plot(s,Q_metode1(:,7))
+title('Evolution of $u_1^0$ in time','Interpreter','Latex')
+xlabel('$t$','Interpreter', 'Latex') 
+ylabel('$u_1^0(t)$','Interpreter', 'Latex')
+
+subplot(2,5,8)
+plot(s,Q_metode1(:,8))
+title('Evolution of $u_1^1$ in time','Interpreter','Latex')
+xlabel('$t$','Interpreter', 'Latex') 
+ylabel('$u_1^1(t)$','Interpreter', 'Latex')
+
+subplot(2,5,9)
+plot(s,Q_metode1(:,9))
+title('Evolution of $u_1^2$ in time','Interpreter','Latex')
+xlabel('$t$','Interpreter', 'Latex') 
+ylabel('$u_1^2(t)$','Interpreter', 'Latex')
+
+subplot(2,5,10)
+plot(s,Q_metode1(:,10))
+title('Evolution of $u_2$ in time','Interpreter','Latex')
+xlabel('$t$','Interpreter', 'Latex') 
+ylabel('$u_2(t)$','Interpreter', 'Latex')
 
 %% Càlcul de la solució del sistema. Mètode 2:
 % En aquesta secció invertirem el canvi de variables per trobar les
@@ -272,7 +329,7 @@ Q_metode2 = zeros(100,10);
 for j = 1:length(s)
     Q_metode2(j,:) = double(q_s(s(j)));
 end
-figure(11)
+figure(2)
 set(gcf,'color','w')
 subplot(2,2,1)
 plot(s,Q_metode2(:,1))
@@ -313,7 +370,7 @@ for j = 1:length(s)
     control_3(j) = double(v3_s(s(j)));
 end
 
-figure(12)
+figure(3)
 set(gcf,'color','w')
 subplot(3,1,1)
 plot(s,control_1)
